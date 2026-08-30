@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0" />
+  <meta name="theme-color" content="#070709" />
+  <title>Charan Mobiles — Smart Choice Smart Life | Naravi - 574109</title>
+  <meta name="description" content="Charan Mobiles in Naravi (574109) — Your premier destination for smartphones, authentic accessories, chip-level repair services, billing, and multi-business assistance." />
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/animations.css" />
+</head>
+<body>
+
+  <!-- =========================================================================
+       HEADER & NAVIGATION
+       ========================================================================= -->
+  <header class="site-header" id="main-header">
+    <div class="container nav-container">
+      
+      <!-- Brand Logo -->
+      <a href="#hero" class="brand-logo-link" aria-label="Charan Mobiles Home">
+        <img src="assets/logo.jpg" alt="Charan Mobiles Logo" class="brand-logo-img" />
+        <div class="brand-text-block">
+          <span class="brand-title">CHARAN MOBILES</span>
+          <span class="brand-tagline">SMART CHOICE. SMART LIFE.</span>
+        </div>
+      </a>
+
+      <!-- Center Desktop Navigation -->
+      <nav aria-label="Main Navigation">
+        <ul class="nav-menu">
+          <li><a href="#hero" class="nav-link active">Home</a></li>
+          <li><a href="#products" class="nav-link">Mobiles & Accessories</a></li>
+          <li><a href="#services" class="nav-link">Services</a></li>
+          <li><a href="#problem-solver" class="nav-link">Problem Solver</a></li>
+          <li><a href="#additional-services" class="nav-link">Other Services</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+          <li><a href="#contact" class="nav-link">Contact</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Actions -->
+      <div class="nav-actions">
+        <!-- Global Search -->
+        <button class="btn-icon" onclick="window.charanApp.openSearch()" aria-label="Search Mobiles and Accessories" title="Search">
+          🔍
+        </button>
+
+        <!-- UPI QR Quick Pay -->
+        <button class="btn-icon" onclick="window.charanApp.openPaymentQR()" aria-label="Pay via UPI" title="Scan UPI QR">
+          📲
+        </button>
+
+        <!-- Cart Drawer Button -->
+        <button class="btn-icon" style="position: relative;" onclick="window.charanApp.openCartDrawer()" aria-label="Shopping Cart" title="Cart">
+          🛒
+          <span class="cart-btn-badge" style="display: none;">0</span>
+        </button>
+
+        <!-- Owner Control Button -->
+        <button class="btn btn-gold-outline" style="padding: 0.45rem 1rem; font-size: 0.8125rem;" onclick="window.charanOwnerControl.openControlCenter()">
+          🔒 <span>Owner Control</span>
+        </button>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button class="menu-toggle" id="menu-toggle" aria-label="Toggle Navigation Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Mobile Drawer Menu -->
+  <div id="mobile-drawer" style="position: fixed; inset: 0; background: rgba(7,7,9,0.96); backdrop-filter: blur(24px); z-index: 99; display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 1.5rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease;">
+    <a href="#hero" class="nav-link" style="font-size: 1.5rem; font-weight: 700;" onclick="document.getElementById('mobile-drawer').classList.remove('open')">Home</a>
+    <a href="#products" class="nav-link" style="font-size: 1.5rem; font-weight: 700;" onclick="document.getElementById('mobile-drawer').classList.remove('open')">Mobiles & Accessories</a>
+    <a href="#services" class="nav-link" style="font-size: 1.5rem; font-weight: 700;" onclick="document.getElementById('mobile-drawer').classList.remove('open')">Services</a>
+    <a href="#problem-solver" class="nav-link" style="font-size: 1.5rem; font-weight: 700;" onclick="document.getElementById('mobile-drawer').classList.remove('open')">Problem Solver</a>
+    <a href="#additional-services" class="nav-link" style="font-size: 1.5rem; font-weight: 700;" onclick="document.getElementById('mobile-drawer').classList.remove('open')">Other Services</a>
+    <a href="#about" class="nav-link" style="font-size: 1.5rem; font-weight: 700;" onclick="document.getElementById('mobile-drawer').classList.remove('open')">About Us</a>
+    <a href="#contact" class="nav-link" style="font-size: 1.5rem; font-weight: 700;" onclick="document.getElementById('mobile-drawer').classList.remove('open')">Contact & Location</a>
+    <button class="btn btn-primary" onclick="document.getElementById('mobile-drawer').classList.remove('open'); window.charanOwnerControl.openControlCenter();" style="margin-top: 1rem;">
+      🔒 Owner Control Center
+    </button>
+  </div>
+
+  <main>
+    <!-- =========================================================================
+         HERO SECTION (Canvas Spotlight Reveal Engine)
+         ========================================================================= -->
+    <section class="hero-section" id="hero">
+      <!-- Spotlight Canvas -->
+      <canvas id="hero-canvas"></canvas>
+
+      <!-- Ambient Glows -->
+      <div class="hero-ambient-glow hero-glow-1 animate-gold-breathe"></div>
+      <div class="hero-ambient-glow hero-glow-2"></div>
+
+      <!-- Hero Content -->
+      <div class="container" style="position: relative; z-index: 5;">
+        <div class="hero-content">
+          
+          <div class="hero-badge animate-hero-badge">
+            <span>✨</span>
+            <span>Premier Mobile Retail & Service • Naravi</span>
+          </div>
+
+          <h1 class="hero-heading animate-hero-heading-1">
+            Charan Mobiles
+            <span class="hero-heading-serif">Smart choice, smart life.</span>
+          </h1>
+
+          <p class="hero-description animate-hero-desc">
+            Your trusted regional destination for latest smartphones, authentic high-grade accessories, expert chip-level repair diagnostics, and certified multi-business assistance.
+          </p>
+
+          <div class="hero-cta-group animate-hero-cta">
+            <a href="#products" class="btn btn-primary">
+              <span>📱 Explore Mobiles</span>
+            </a>
+            <a href="https://wa.me/916360509055?text=Hello%20Charan%20Mobiles,%20I%20am%20visiting%20your%20website%20and%20would%20like%20to%20know%20more." target="_blank" class="btn btn-whatsapp">
+              <span>💬 Visit & WhatsApp</span>
+            </a>
+            <button class="btn btn-secondary" onclick="window.charanApp.openPaymentQR()">
+              <span>📲 UPI QR Pay</span>
+            </button>
+          </div>
+
+          <div class="hero-trust-bar animate-hero-trust">
+            <div class="trust-item">
+              <span class="trust-number">100%</span>
+              <span class="trust-label">Genuine Products</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-number">Naravi</span>
+              <span class="trust-label">574109 Local Shop</span>
+            </div>
+            <div class="trust-item">
+              <span class="trust-number">Expert</span>
+              <span class="trust-label">Service & Repair</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom Scroll Indicator -->
+      <a href="#products" class="hero-scroll-indicator" aria-label="Scroll down to explore">
+        <div class="scroll-mouse">
+          <div class="scroll-wheel"></div>
+        </div>
+        <span>Scroll to explore</span>
+      </a>
+    </section>
+
+    <!-- =========================================================================
+         PRODUCTS & ACCESSORIES SECTION
+         ========================================================================= -->
+    <section id="products" style="background: var(--bg-secondary);">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">Premium Showcase</span>
+          <h2 class="section-title">Smartphones & Accessories</h2>
+          <p class="section-subtitle">
+            Curated devices with official warranty, transparent pricing, and instant local support in Naravi.
+          </p>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+          <button class="filter-chip active" data-category="All" onclick="window.charanApp.filterCategory('All')">All Collection</button>
+          <button class="filter-chip" data-category="Smartphones" onclick="window.charanApp.filterCategory('Smartphones')">Smartphones</button>
+          <button class="filter-chip" data-category="iPhone" onclick="window.charanApp.filterCategory('iPhone')">iPhone / Apple</button>
+          <button class="filter-chip" data-category="Samsung" onclick="window.charanApp.filterCategory('Samsung')">Samsung</button>
+          <button class="filter-chip" data-category="OnePlus" onclick="window.charanApp.filterCategory('OnePlus')">OnePlus</button>
+          <button class="filter-chip" data-category="Xiaomi" onclick="window.charanApp.filterCategory('Xiaomi')">Xiaomi / Redmi</button>
+          <button class="filter-chip" data-category="Vivo" onclick="window.charanApp.filterCategory('Vivo')">Vivo</button>
+          <button class="filter-chip" data-category="Oppo" onclick="window.charanApp.filterCategory('Oppo')">Oppo</button>
+          <button class="filter-chip" data-category="Realme" onclick="window.charanApp.filterCategory('Realme')">Realme</button>
+          <button class="filter-chip" data-category="Accessories" onclick="window.charanApp.filterCategory('Accessories')">All Accessories</button>
+          <button class="filter-chip" data-category="Audio" onclick="window.charanApp.filterCategory('Audio')">Earbuds & Audio</button>
+          <button class="filter-chip" data-category="Chargers" onclick="window.charanApp.filterCategory('Chargers')">Chargers & Cables</button>
+          <button class="filter-chip" data-category="Smartwatches" onclick="window.charanApp.filterCategory('Smartwatches')">Smart Watches</button>
+        </div>
+
+        <!-- Dynamic Live Products Grid -->
+        <div class="product-grid" id="products-grid">
+          <!-- Populated by window.charanApp.renderProducts() -->
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         MOBILE PROBLEM SOLVER / FAULT FINDER
+         ========================================================================= -->
+    <section id="problem-solver">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">Interactive Diagnostics</span>
+          <h2 class="section-title">Mobile Problem Solver</h2>
+          <p class="section-subtitle">
+            Having an issue with your phone? Run our step-by-step fault finder to get immediate diagnostic advice and service estimates.
+          </p>
+        </div>
+
+        <div class="problem-solver-card">
+          <div id="problem-solver-root">
+            <!-- Rendered by window.charanProblemSolver -->
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         SERVICES SECTION
+         ========================================================================= -->
+    <section id="services" style="background: var(--bg-secondary);">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">Certified Bench Repair</span>
+          <h2 class="section-title">Expert Mobile Services</h2>
+          <p class="section-subtitle">
+            Fast turnaround, genuine replacement components, and specialized tooling at our Naravi service lab.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          
+          <div class="crystal-card service-card">
+            <div class="service-icon-box">📱</div>
+            <h3 class="service-title">Screen & OCA Glass Lamination</h3>
+            <p class="service-desc">
+              Precision bubble-free OCA glass restoration and OEM AMOLED display replacements for iPhone, Samsung, OnePlus, and all Android smartphones.
+            </p>
+            <a href="https://wa.me/916360509055?text=Hello%20Charan%20Mobiles,%20I%20need%20a%20screen%20replacement%20quote." target="_blank" class="btn btn-gold-outline" style="align-self: flex-start;">
+              Inquire Screen Repair →
+            </a>
+          </div>
+
+          <div class="crystal-card service-card">
+            <div class="service-icon-box">🔋</div>
+            <h3 class="service-title">Battery & Charging Sub-Board</h3>
+            <p class="service-desc">
+              High-cycle replacement batteries, charging pin replacements, Type-C fast charging diagnosis, and loose contact rectification.
+            </p>
+            <a href="https://wa.me/916360509055?text=Hello%20Charan%20Mobiles,%20I%20need%20a%20battery%20replacement." target="_blank" class="btn btn-gold-outline" style="align-self: flex-start;">
+              Inquire Battery →
+            </a>
+          </div>
+
+          <div class="crystal-card service-card">
+            <div class="service-icon-box">💧</div>
+            <h3 class="service-title">Water Damage Ultrasonic Revival</h3>
+            <p class="service-desc">
+              Immediate chemical de-oxidation, corrosion removal, short-circuit diagnostics, and board-level component revival for liquid-exposed phones.
+            </p>
+            <a href="https://wa.me/916360509055?text=Hello%20Charan%20Mobiles,%20my%20phone%20fell%20in%20water%20and%20needs%20urgent%20cleaning." target="_blank" class="btn btn-gold-outline" style="align-self: flex-start;">
+              Urgent Water Care →
+            </a>
+          </div>
+
+          <div class="crystal-card service-card">
+            <div class="service-icon-box">💻</div>
+            <h3 class="service-title">Software Flashing & Bootloop Fix</h3>
+            <p class="service-desc">
+              Official stock firmware restoration, hanging recovery, system crash fixes, pattern unlock assistance, and data preservation workflows.
+            </p>
+            <a href="https://wa.me/916360509055?text=Hello%20Charan%20Mobiles,%20my%20phone%20is%20stuck%20on%20the%20logo%20screen." target="_blank" class="btn btn-gold-outline" style="align-self: flex-start;">
+              Software Help →
+            </a>
+          </div>
+
+          <div class="crystal-card service-card">
+            <div class="service-icon-box">🔊</div>
+            <h3 class="service-title">Speaker, Mic & Acoustic Cleaning</h3>
+            <p class="service-desc">
+              Earpiece volume restoration, acoustic mesh solvent cleaning, loud speaker replacements, and secondary noise-cancelling microphone repairs.
+            </p>
+            <a href="https://wa.me/916360509055?text=Hello%20Charan%20Mobiles,%20my%20phone%20earpiece%20volume%20is%20too%20low." target="_blank" class="btn btn-gold-outline" style="align-self: flex-start;">
+              Sound Repair →
+            </a>
+          </div>
+
+          <div class="crystal-card service-card">
+            <div class="service-icon-box">🔄</div>
+            <h3 class="service-title">Data Migration & WhatsApp Transfer</h3>
+            <p class="service-desc">
+              Seamless 100% data migration between Android and iPhone devices, full cloud backups, photo archival, and WhatsApp chat history restoration.
+            </p>
+            <a href="https://wa.me/916360509055?text=Hello%20Charan%20Mobiles,%20I%20need%20help%20transferring%20data%20to%20my%20new%20phone." target="_blank" class="btn btn-gold-outline" style="align-self: flex-start;">
+              Data Transfer →
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         ADDITIONAL BUSINESS SERVICES (SBI, Rubber, Pumps, Used Vehicles)
+         ========================================================================= -->
+    <section id="additional-services">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">Community & Enterprise</span>
+          <h2 class="section-title">Additional Business Services</h2>
+          <p class="section-subtitle">
+            Reliable assistance and direct WhatsApp communication for insurance, agricultural machinery, local rubber tapping, and verified pre-owned vehicles.
+          </p>
+        </div>
+
+        <div class="additional-services-grid">
+          
+          <div class="extra-service-card">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🛡️</div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">SBI Insurance</h3>
+            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1;">
+              Assistance for all types of SBI Insurance policies — vehicle, life, health, and device insurance renewals through direct WhatsApp support.
+            </p>
+            <a href="https://wa.me/916360509055?text=Hello%20Charan%20Mobiles,%20I%20am%20inquiring%20about%20SBI%20Insurance%20services." target="_blank" class="btn btn-whatsapp" style="width: 100%;">
+              💬 Inquire Insurance
+            </a>
+          </div>
+
+          <div class="extra-service-card">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🌳</div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Rubber Tapping</h3>
+            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1;">
+              Plantation coordination, rubber tapping tools, skilled workers connection, and related plantation supplies communication.
+            </p>
+            <a href="https://wa.me/916360509055?text=Hello%20Charan%20Mobiles,%20I%20need%20information%20regarding%20Rubber%20Tapping." target="_blank" class="btn btn-whatsapp" style="width: 100%;">
+              💬 Contact via WhatsApp
+            </a>
+          </div>
+
+          <div class="extra-service-card">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">⚡</div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Water Pumps & Motors</h3>
+            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1;">
+              Inquiries, models, specifications, and supply coordination for agricultural water pumps, domestic motors, and specialized machines.
+            </p>
+            <a href="https://wa.me/916360509055?text=Hello%20Charan%20Mobiles,%20I%20am%20inquiring%20about%20Water%20Pumps%20and%20Motors." target="_blank" class="btn btn-whatsapp" style="width: 100%;">
+              💬 Inquire Machinery
+            </a>
+          </div>
+
+          <div class="extra-service-card">
+            <div style="font-size: 2.5rem; margin-bottom: 1rem;">🚗</div>
+            <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff; margin-bottom: 0.5rem;">Used Vehicles</h3>
+            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1.5rem; flex-grow: 1;">
+              Verified pre-owned two-wheeler and four-wheeler listings, owner connections, and vehicle exchange opportunities.
+            </p>
+            <a href="https://wa.me/916360509055?text=Hello%20Charan%20Mobiles,%20I%20am%20inquiring%20about%20Available%20Used%20Vehicles." target="_blank" class="btn btn-whatsapp" style="width: 100%;">
+              💬 Inquire Vehicles
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         ABOUT US & AUTHENTIC MEDIA SHOWCASE
+         ========================================================================= -->
+    <section id="about" style="background: var(--bg-secondary);">
+      <div class="container">
+        
+        <div class="about-grid">
+          
+          <!-- Authentic Photos Gallery -->
+          <div class="about-gallery">
+            <div class="about-img-box tall">
+              <img src="assets/shop.jpg" alt="Charan Mobiles Shop Interior" class="about-img" />
+              <div class="owner-spotlight-badge">
+                <strong style="color: var(--gold-light);">Charan Mobiles Shop</strong><br />
+                <span style="color: var(--text-muted); font-size: 0.75rem;">Naravi - 574109</span>
+              </div>
+            </div>
+
+            <div class="about-img-box">
+              <img src="assets/owner.jpg" alt="Charan - Shop Owner" class="about-img" />
+              <div class="owner-spotlight-badge" style="bottom: 0.5rem; left: 0.5rem; right: 0.5rem; padding: 0.5rem;">
+                <strong style="color: var(--gold-light);">Mr. Charan</strong><br />
+                <span style="color: var(--text-muted); font-size: 0.75rem;">Proprietor & Lead Technician</span>
+              </div>
+            </div>
+
+            <div class="about-img-box" style="background: #000; display: flex; align-items: center; justify-content: center; padding: 1.5rem;">
+              <img src="assets/logo.jpg" alt="Charan Mobiles Gold Logo" style="max-width: 100%; border-radius: 8px;" />
+            </div>
+          </div>
+
+          <!-- Description Text -->
+          <div>
+            <span class="section-tag">Authentic & Local</span>
+            <h2 class="section-title" style="font-size: 2.25rem;">Dedicated Mobile Excellence in Naravi</h2>
+            
+            <p style="color: var(--text-secondary); font-size: 1.0625rem; line-height: 1.7; margin-bottom: 1.5rem;">
+              <strong>Charan Mobiles</strong> is built on trust, genuine technology, and transparent customer service. Located at Naravi (574109), we provide our community with authentic brand smartphones, certified accessories, fast repairs, and friendly local assistance.
+            </p>
+
+            <p style="color: var(--text-secondary); font-size: 0.9375rem; line-height: 1.7; margin-bottom: 2rem;">
+              Whether you need to upgrade to the latest phone, protect your device with tempered glass, resolve a hardware problem, or manage insurance and agricultural inquiries, we are always here to help with a smile.
+            </p>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1rem;">
+                <div style="font-size: 0.75rem; font-weight: 700; color: var(--gold-primary); text-transform: uppercase;">Shop Address</div>
+                <div style="font-size: 0.875rem; font-weight: 600; color: #fff; margin-top: 0.25rem;" class="shop-address-text">Naravi - 574109</div>
+              </div>
+              <div style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-md); padding: 1rem;">
+                <div style="font-size: 0.75rem; font-weight: 700; color: var(--gold-primary); text-transform: uppercase;">Phone / WhatsApp</div>
+                <div style="font-size: 0.875rem; font-weight: 600; color: #fff; margin-top: 0.25rem;" class="shop-phone-text">6360509055</div>
+              </div>
+            </div>
+
+            <a href="#contact" class="btn btn-primary">
+              <span>📍 Visit Our Shop in Naravi</span>
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         CONTACT & UPI SECTION
+         ========================================================================= -->
+    <section id="contact">
+      <div class="container">
+        
+        <div class="section-header">
+          <span class="section-tag">Get in Touch</span>
+          <h2 class="section-title">Contact Charan Mobiles</h2>
+          <p class="section-subtitle">
+            Walk into our Naravi store or chat with us instantly on WhatsApp.
+          </p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 3rem; align-items: center;">
+          
+          <!-- Contact Cards -->
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            
+            <div class="glass-panel" style="padding: 1.5rem; display: flex; align-items: center; gap: 1.25rem;">
+              <div class="service-icon-box" style="margin-bottom: 0;">📍</div>
+              <div>
+                <div style="font-size: 0.75rem; font-weight: 700; color: var(--gold-primary); text-transform: uppercase;">Store Location</div>
+                <div style="font-size: 1.0625rem; font-weight: 700; color: #fff;" class="shop-address-text">Naravi - 574109, Karnataka</div>
+                <div style="font-size: 0.8125rem; color: var(--text-muted);">Belthangady Taluk, Dakshina Kannada</div>
+              </div>
+            </div>
+
+            <div class="glass-panel" style="padding: 1.5rem; display: flex; align-items: center; gap: 1.25rem;">
+              <div class="service-icon-box" style="margin-bottom: 0;">📞</div>
+              <div>
+                <div style="font-size: 0.75rem; font-weight: 700; color: var(--gold-primary); text-transform: uppercase;">Direct Calling & WhatsApp</div>
+                <div style="font-size: 1.0625rem; font-weight: 700; color: #fff;" class="shop-phone-text">6360509055</div>
+                <div style="font-size: 0.8125rem; color: var(--text-muted);">Quick response for orders & repair updates</div>
+              </div>
+            </div>
+
+            <div class="glass-panel" style="padding: 1.5rem; display: flex; align-items: center; gap: 1.25rem;">
+              <div class="service-icon-box" style="margin-bottom: 0;">⏰</div>
+              <div>
+                <div style="font-size: 0.75rem; font-weight: 700; color: var(--gold-primary); text-transform: uppercase;">Business Hours</div>
+                <div style="font-size: 0.9375rem; font-weight: 700; color: #fff;" class="shop-hours-text">Mon - Sat: 9:00 AM - 8:30 PM | Sun: 10:00 AM - 2:00 PM</div>
+              </div>
+            </div>
+
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+              <a href="tel:6360509055" class="btn btn-primary" style="flex: 1;">
+                <span>📞 Call Now</span>
+              </a>
+              <a href="https://wa.me/916360509055?text=Hello%20Charan%20Mobiles,%20I%20have%20an%20inquiry." target="_blank" class="btn btn-whatsapp" style="flex: 1;">
+                <span>💬 WhatsApp</span>
+              </a>
+            </div>
+
+          </div>
+
+          <!-- UPI Pay Box with Authentic QR Code -->
+          <div class="glass-panel-gold" style="padding: 2.5rem; text-align: center;">
+            <span class="badge badge-gold" style="margin-bottom: 1rem;">Instant UPI Payment</span>
+            <h3 style="font-size: 1.375rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">Charan Mobiles UPI</h3>
+            <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1.5rem;">Scan with Google Pay, PhonePe, Paytm, or any UPI app</p>
+
+            <div style="background: #ffffff; padding: 1rem; border-radius: var(--radius-md); display: inline-block; box-shadow: 0 10px 30px rgba(0,0,0,0.5); margin-bottom: 1.25rem;">
+              <img src="assets/upi-qr.jpg" alt="Charan Mobiles UPI QR Code" style="width: 180px; height: 180px; object-fit: contain; display: block;" />
+            </div>
+
+            <div style="background: rgba(0,0,0,0.5); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 0.5rem 1rem; font-family: var(--font-mono); font-size: 0.875rem; color: var(--gold-light); display: inline-block;">
+              UPI ID: <span class="shop-upi-text">charanmobiles09-1@okicici</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Brand Info -->
+        <div>
+          <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 1rem;">
+            <img src="assets/logo.jpg" alt="Logo" style="width: 40px; height: 40px; border-radius: 8px;" />
+            <div>
+              <div style="font-weight: 800; font-size: 1.125rem; letter-spacing: 0.08em; color: #fff;">CHARAN MOBILES</div>
+              <div style="font-size: 0.6875rem; font-weight: 700; color: var(--gold-primary); letter-spacing: 0.15em;">SMART CHOICE. SMART LIFE.</div>
+            </div>
+          </div>
+          <p style="color: var(--text-secondary); font-size: 0.875rem; line-height: 1.6; max-width: 320px;">
+            Your trusted local partner for mobile phones, accessories, chip-level diagnostics, and verified community business assistance in Naravi (574109).
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="footer-col-title">Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#hero" class="footer-link">Home</a></li>
+            <li><a href="#products" class="footer-link">Smartphones & Accessories</a></li>
+            <li><a href="#problem-solver" class="footer-link">Problem Solver</a></li>
+            <li><a href="#services" class="footer-link">Repair Services</a></li>
+            <li><a href="#about" class="footer-link">About Charan Mobiles</a></li>
+          </ul>
+        </div>
+
+        <!-- Services -->
+        <div>
+          <h4 class="footer-col-title">Other Services</h4>
+          <ul class="footer-links">
+            <li><a href="#additional-services" class="footer-link">SBI Insurance</a></li>
+            <li><a href="#additional-services" class="footer-link">Rubber Tapping</a></li>
+            <li><a href="#additional-services" class="footer-link">Water Pumps & Motors</a></li>
+            <li><a href="#additional-services" class="footer-link">Used Vehicles</a></li>
+          </ul>
+        </div>
+
+        <!-- Shop Hours & Owner -->
+        <div>
+          <h4 class="footer-col-title">Store Info</h4>
+          <div style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.6; margin-bottom: 1rem;">
+            📍 <strong>Naravi - 574109</strong><br />
+            📞 <strong>6360509055</strong><br />
+            💳 <strong>charanmobiles09-1@okicici</strong>
+          </div>
+          <button class="btn btn-gold-outline" style="padding: 0.4rem 1rem; font-size: 0.8125rem;" onclick="window.charanOwnerControl.openControlCenter()">
+            🔒 Owner Control Center
+          </button>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 Charan Mobiles. All rights reserved. • Smart choice smart life.</div>
+        <div style="color: var(--text-muted);">Naravi - 574109, Belthangady, Karnataka</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =========================================================================
+       MODALS & DRAWERS
+       ========================================================================= -->
+
+  <!-- 1. Global Search Overlay -->
+  <div id="search-overlay" class="admin-modal">
+    <div style="width: 100%; max-width: 680px; background: #0d0d12; border: 1px solid var(--gold-border); border-radius: var(--radius-xl); padding: 2rem; box-shadow: var(--shadow-crystal);">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+        <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff;">Search Mobiles & Accessories</h3>
+        <button class="btn-icon" onclick="window.charanApp.closeSearch()" aria-label="Close search">✕</button>
+      </div>
+      <input type="text" id="global-search-input" class="form-input" placeholder="Type iPhone, Samsung, chargers, earbuds, specs..." oninput="window.charanApp.handleSearch(this.value)" />
+      <div id="search-results-list" style="margin-top: 1.5rem; max-height: 350px; overflow-y: auto;">
+        <!-- Filtered items -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 2. Shopping Cart Drawer -->
+  <div id="cart-drawer" style="position: fixed; top: 0; right: 0; bottom: 0; width: 100%; max-width: 420px; background: #0d0d12; border-left: 1px solid var(--gold-border); box-shadow: -10px 0 40px rgba(0,0,0,0.8); z-index: 1000; transform: translateX(100%); transition: transform 0.3s cubic-bezier(0.16,1,0.3,1); display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: space-between; align-items: center; padding: 1.5rem; border-bottom: 1px solid var(--border-subtle); background: rgba(18,18,26,0.6);">
+      <h3 style="font-size: 1.25rem; font-weight: 700; color: #fff;">Shopping Cart</h3>
+      <button class="btn-icon" onclick="window.charanApp.closeCartDrawer()">✕</button>
+    </div>
+    <div id="cart-drawer-items" style="flex-grow: 1; padding: 1.5rem; overflow-y: auto;">
+      <!-- Dynamic cart items -->
+    </div>
+    <div style="padding: 1.5rem; border-top: 1px solid var(--border-subtle); background: rgba(14,14,20,0.8);">
+      <div style="display: flex; justify-content: space-between; font-size: 1.125rem; font-weight: 800; color: #fff; margin-bottom: 1rem;">
+        <span>Total:</span>
+        <span id="cart-drawer-total" style="color: var(--gold-light);">₹0</span>
+      </div>
+      <a id="cart-checkout-btn" href="#" target="_blank" class="btn btn-whatsapp" style="width: 100%; display: none;">
+        <span>💬 Order & Confirm via WhatsApp</span>
+      </a>
+    </div>
+  </div>
+
+  <!-- 3. Product Details Modal -->
+  <div id="product-details-modal" class="admin-modal">
+    <div class="admin-dialog" style="max-width: 800px; padding: 2rem; position: relative;">
+      <button class="btn-icon" style="position: absolute; top: 1rem; right: 1rem;" onclick="window.charanApp.closeProductDetails()">✕</button>
+      <div id="product-details-content">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 4. UPI Payment QR Modal -->
+  <div id="upi-qr-modal" class="admin-modal">
+    <div class="glass-panel-gold" style="max-width: 440px; padding: 2.5rem; text-align: center; position: relative;">
+      <button class="btn-icon" style="position: absolute; top: 1rem; right: 1rem;" onclick="window.charanApp.closePaymentQR()">✕</button>
+      <span class="badge badge-gold" style="margin-bottom: 1rem;">Direct UPI Payment</span>
+      <h3 style="font-size: 1.375rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">Charan Mobiles (Naravi)</h3>
+      <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1.5rem;">Scan this authentic QR code using any UPI app</p>
+      
+      <div style="background: #fff; padding: 1rem; border-radius: var(--radius-md); display: inline-block; margin-bottom: 1.25rem;">
+        <img src="assets/upi-qr.jpg" alt="Charan Mobiles UPI QR" style="width: 220px; height: 220px; object-fit: contain; display: block;" />
+      </div>
+
+      <div style="font-family: var(--font-mono); font-size: 0.875rem; color: var(--gold-light); background: #000; padding: 0.5rem 1rem; border-radius: var(--radius-sm); border: 1px solid var(--border-subtle);">
+        UPI ID: <span class="shop-upi-text">charanmobiles09-1@okicici</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5. Owner Login Modal with Password Beam Lighting -->
+  <div id="admin-login-modal" class="admin-modal">
+    <div class="glass-panel-gold password-beam-wrap" style="max-width: 440px; padding: 2.5rem; text-align: center; position: relative;">
+      <div class="password-beam-light"></div>
+      <button class="btn-icon" style="position: absolute; top: 1rem; right: 1rem;" onclick="window.charanOwnerControl.closeLoginModal()">✕</button>
+      
+      <div style="font-size: 2.5rem; margin-bottom: 0.75rem;">🔒</div>
+      <h3 style="font-size: 1.375rem; font-weight: 800; color: #fff; margin-bottom: 0.5rem;">Owner Control Login</h3>
+      <p style="color: var(--text-secondary); font-size: 0.875rem; margin-bottom: 1.5rem;">
+        Restricted administration area for Charan Mobiles (Naravi).
+      </p>
+
+      <form onsubmit="window.charanOwnerControl.handleLogin(event)">
+        <div class="form-group" style="position: relative; text-align: left;">
+          <label class="form-label">Owner PIN / Password</label>
+          <input type="password" id="owner-password-input" class="form-input" placeholder="Enter owner passcode" required />
+        </div>
+        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+          Unlock Control Center
+        </button>
+      </form>
+      <div style="font-size: 0.75rem; color: var(--text-muted); margin-top: 1rem;">
+        (Default Owner Code: <strong>63605</strong>)
+      </div>
+    </div>
+  </div>
+
+  <!-- 6. Owner Control Center Dashboard -->
+  <div id="admin-dashboard-modal" class="admin-modal">
+    <div class="admin-dialog">
+      <!-- Admin Header -->
+      <div class="admin-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <img src="assets/logo.jpg" style="width: 36px; height: 36px; border-radius: 8px;" />
+          <div>
+            <div style="font-weight: 800; color: #fff; font-size: 1.125rem;">CHARAN MOBILES — OWNER CONTROL</div>
+            <div style="font-size: 0.75rem; color: var(--gold-primary);">Naravi - 574109 • Full Management Active</div>
+          </div>
+        </div>
+        <div style="display: flex; gap: 0.5rem;">
+          <button class="btn btn-secondary" style="padding: 0.4rem 0.8rem; font-size: 0.8125rem;" onclick="window.charanOwnerControl.logout()">Logout</button>
+          <button class="btn-icon" onclick="window.charanOwnerControl.closeAdminModal()">✕</button>
+        </div>
+      </div>
+
+      <!-- Admin Navigation Tabs -->
+      <div class="admin-nav-tabs">
+        <button class="admin-tab-btn active" data-tab="products" onclick="window.charanOwnerControl.switchTab('products')">
+          📱 Products & Stock
+        </button>
+        <button class="admin-tab-btn" data-tab="billing" onclick="window.charanOwnerControl.switchTab('billing')">
+          📄 Invoicing & Billing
+        </button>
+        <button class="admin-tab-btn" data-tab="reminders" onclick="window.charanOwnerControl.switchTab('reminders')">
+          💬 Customer Reminders (English & ಕನ್ನಡ)
+        </button>
+        <button class="admin-tab-btn" data-tab="settings" onclick="window.charanOwnerControl.switchTab('settings')">
+          ⚙️ Business Settings
+        </button>
+      </div>
+
+      <!-- Admin Tab Body -->
+      <div class="admin-body" id="admin-tab-body">
+        <!-- Rendered dynamically -->
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. Add Product Modal -->
+  <div id="add-product-modal" class="admin-modal">
+    <div class="admin-dialog" style="max-width: 650px; padding: 2rem; position: relative;">
+      <button class="btn-icon" style="position: absolute; top: 1rem; right: 1rem;" onclick="window.charanOwnerControl.closeAddProductModal()">✕</button>
+      <h3 style="font-size: 1.375rem; font-weight: 800; color: #fff; margin-bottom: 1.5rem;">➕ Add Product to Public Catalog</h3>
+      
+      <form onsubmit="window.charanOwnerControl.handleSaveProduct(event)">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label">Product Name *</label>
+            <input type="text" name="name" class="form-input" placeholder="e.g. iPhone 15 Pro / Galaxy S24" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Brand</label>
+            <select name="brand" class="form-select">
+              <option value="Apple">Apple / iPhone</option>
+              <option value="Samsung">Samsung</option>
+              <option value="OnePlus">OnePlus</option>
+              <option value="Xiaomi">Xiaomi / Redmi</option>
+              <option value="Vivo">Vivo</option>
+              <option value="Oppo">Oppo</option>
+              <option value="Realme">Realme</option>
+              <option value="Motorola">Motorola</option>
+              <option value="Other">Other Brand</option>
+            </select>
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label">Category</label>
+            <select name="category" class="form-select">
+              <option value="Smartphones">Smartphones</option>
+              <option value="Accessories">Accessories</option>
+              <option value="Audio">Audio & Earbuds</option>
+              <option value="Chargers">Chargers & Cables</option>
+              <option value="Smartwatches">Smart Watches</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Price (₹) *</label>
+            <input type="number" name="price" class="form-input" placeholder="Price" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Offer Price (₹)</label>
+            <input type="number" name="offerPrice" class="form-input" placeholder="Discounted price" />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+          <div class="form-group">
+            <label class="form-label">Storage / RAM</label>
+            <input type="text" name="storage" class="form-input" placeholder="e.g. 8GB RAM + 128GB / 256GB" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Stock Quantity</label>
+            <input type="number" name="stock" class="form-input" value="1" min="0" />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Upload Product Image</label>
+          <input type="file" id="prod-img-file" class="form-input" accept="image/*" />
+          <input type="text" name="imageUrl" class="form-input" style="margin-top: 0.5rem;" placeholder="Or paste image URL / leave blank for Charan logo" />
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Specifications & Description</label>
+          <textarea name="specs" class="form-textarea" rows="2" placeholder="Key highlights, warranty, box contents"></textarea>
+        </div>
+
+        <div style="display: flex; gap: 1.5rem; margin-bottom: 1.5rem;">
+          <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: #fff; cursor: pointer;">
+            <input type="checkbox" name="isFeatured" /> Featured Product
+          </label>
+          <label style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.875rem; color: #fff; cursor: pointer;">
+            <input type="checkbox" name="isOffer" /> Promotional Offer
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">
+          Add Product to Catalog
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 8. Create Tax Invoice Modal -->
+  <div id="create-invoice-modal" class="admin-modal">
+    <div class="admin-dialog" style="max-width: 800px; padding: 2rem; position: relative;">
+      <button class="btn-icon" style="position: absolute; top: 1rem; right: 1rem;" onclick="window.charanOwnerControl.closeCreateInvoiceModal()">✕</button>
+      <h3 style="font-size: 1.375rem; font-weight: 800; color: #fff; margin-bottom: 1.5rem;">📄 Create Official E-Bill / Tax Invoice</h3>
+      
+      <form onsubmit="window.charanOwnerControl.handleSaveInvoice(event)">
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1.25rem;">
+          <div class="form-group">
+            <label class="form-label">Customer Name *</label>
+            <input type="text" name="customerName" class="form-input" placeholder="Customer Name" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Customer Phone</label>
+            <input type="text" name="customerPhone" class="form-input" placeholder="Mobile Number" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Customer Address / Place</label>
+            <input type="text" name="customerAddress" class="form-input" value="Naravi" />
+          </div>
+        </div>
+
+        <!-- Dynamic Items Table in Invoice Modal -->
+        <label class="form-label">Billed Products / Services</label>
+        <div id="invoice-items-builder" style="background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); padding: 1rem; margin-bottom: 1rem;">
+          <div class="invoice-item-row" style="display: grid; grid-template-columns: 3fr 1fr 1.5fr; gap: 0.75rem; margin-bottom: 0.5rem;">
+            <input type="text" class="form-input item-desc" placeholder="Item description (e.g. Tempered Glass / Screen Repair)" required />
+            <input type="number" class="form-input item-qty" placeholder="Qty" value="1" min="1" required />
+            <input type="number" class="form-input item-price" placeholder="Unit Price (₹)" required />
+          </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1rem; margin-bottom: 1.5rem;">
+          <div class="form-group">
+            <label class="form-label">Discount (₹)</label>
+            <input type="number" name="discount" class="form-input" value="0" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Other Charges (₹)</label>
+            <input type="number" name="otherCharges" class="form-input" value="0" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Paid Amount (₹)</label>
+            <input type="number" name="paidAmount" class="form-input" placeholder="Amount customer paid" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Payment Mode</label>
+            <select name="paymentMode" class="form-select">
+              <option value="Cash">Cash</option>
+              <option value="UPI / GPay">UPI / GPay</option>
+              <option value="Card">Card</option>
+              <option value="Partial / Pending">Partial / Pending</option>
+            </select>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">
+          Generate & Save Official Invoice
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- 9. Printable Invoice Modal (Exact replica of authentic bill) -->
+  <div id="view-invoice-modal" class="admin-modal">
+    <div class="admin-dialog" style="max-width: 860px; max-height: 95vh; padding: 2rem; background: #18181b; position: relative;">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <button class="btn btn-primary" onclick="window.print()">
+          🖨️ Print / Save as PDF
+        </button>
+        <button class="btn-icon" onclick="document.getElementById('view-invoice-modal').classList.remove('open')">✕</button>
+      </div>
+      <div id="printable-invoice-content" class="printable-invoice-container" style="overflow-y: auto;">
+        <!-- Injected by window.charanOwnerControl.viewInvoicePrint() -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Root -->
+  <div id="toast-root" class="toast-container"></div>
+
+  <!-- Application Scripts -->
+  <script src="js/store.js"></script>
+  <script src="js/hero-spotlight.js"></script>
+  <script src="js/crystal-3d.js"></script>
+  <script src="js/problem-solver.js"></script>
+  <script src="js/owner-control.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
